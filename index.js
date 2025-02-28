@@ -6,9 +6,13 @@ const urlRoute = require("./routes/url");
 const staticrouter = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
 const app = express();
-const port = 8001;
+const port = process.env.PORT || 8003 ;
 const cookieParser = require("cookie-parser");
 const { restrictToLoggedUserOnly, checkAuth } = require("./middleware/auth");
+
+
+
+
 connectToMongoDB("mongodb+srv://nitin:nitin@cluster0.dgrvc.mongodb.net/short-url")
   .then(() => {
     console.log("connected ");
